@@ -75,7 +75,7 @@
     </dependencies>
 
     <build>
-        <finalName>BedrockProxyCore</finalName>
+        <finalName>CloudBridge</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
