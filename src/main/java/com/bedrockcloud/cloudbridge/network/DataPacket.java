@@ -17,11 +17,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import java.net.*;
-import java.io.*;
 
 public class DataPacket {
+    public final int TYPE_REQUEST = 0;
+    public final int TYPE_RESPONSE = 1;
+
     public Map<String, Object> data;
-    public String packetName;
 
     public DataPacket() {
         this.data = new HashMap<String, Object>();

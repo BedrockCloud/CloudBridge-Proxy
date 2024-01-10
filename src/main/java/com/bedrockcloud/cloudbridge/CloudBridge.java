@@ -46,6 +46,7 @@ public class CloudBridge
         getPacketHandler().registerPacket(PlayerKickPacket.class);
         getPacketHandler().registerPacket(CloudPlayerChangeServerPacket.class);
         getPacketHandler().registerPacket(SendToHubPacket.class);
+        getPacketHandler().registerPacket(KeepALivePacket.class);
     }
     
     public static PacketHandler getPacketHandler() {
