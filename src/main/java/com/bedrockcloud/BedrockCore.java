@@ -53,13 +53,13 @@ public class BedrockCore extends Plugin
     }
 
     public void onDisable() {
-        final ProxyServerDisconnectPacket packet = new ProxyServerDisconnectPacket();
+        final CloudServerDisconnectPacket packet = new CloudServerDisconnectPacket();
         packet.addValue("serverName", this.cloudBridge.getServerName());
         packet.pushPacket(packet);
     }
 
     public void onPlayerDisconnectListener(PlayerDisconnectedEvent event) {
-        final ProxyPlayerQuitPacket newpacket = new ProxyPlayerQuitPacket();
+        final CloudPlayerQuitPacket newpacket = new CloudPlayerQuitPacket();
         newpacket.playerName = event.getPlayer().getName();
         try {
             newpacket.leftServer = event.getPlayer().getServerInfo().getServerName();
@@ -86,7 +86,7 @@ public class BedrockCore extends Plugin
     
     public void onPlayerJoin(final PlayerLoginEvent event) {
         final ProxiedPlayer player = event.getPlayer();
-        final ProxyPlayerJoinPacket packet = new ProxyPlayerJoinPacket();
+        final CloudPlayerJoinPacket packet = new CloudPlayerJoinPacket();
         packet.playerName = player.getName().toLowerCase(Locale.ROOT).replace(" ", "_");
         packet.joinedServer = "Loading...";
         packet.address = String.valueOf(player.getAddress());

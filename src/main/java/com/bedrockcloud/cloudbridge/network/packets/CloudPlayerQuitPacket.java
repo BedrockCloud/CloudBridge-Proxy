@@ -2,7 +2,7 @@ package com.bedrockcloud.cloudbridge.network.packets;
 
 import com.bedrockcloud.cloudbridge.network.DataPacket;
 
-public class ProxyPlayerQuitPacket extends DataPacket
+public class CloudPlayerQuitPacket extends DataPacket
 {
     public String playerName;
     public String leftServer;

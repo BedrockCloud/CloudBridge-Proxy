@@ -4,9 +4,8 @@ import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONObject;
 import com.bedrockcloud.cloudbridge.network.DataPacket;
 
-public class ProxyServerDisconnectPacket extends DataPacket
-{
-    
+public class CloudServerDisconnectPacket extends DataPacket {
+
     @Override
     public void handle(final JSONObject jsonObject) {
         ProxyServer.getInstance().shutdown();

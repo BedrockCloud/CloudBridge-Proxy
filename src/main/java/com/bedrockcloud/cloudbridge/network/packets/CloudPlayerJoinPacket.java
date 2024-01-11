@@ -3,7 +3,7 @@ package com.bedrockcloud.cloudbridge.network.packets;
 import com.bedrockcloud.cloudbridge.config.Config;
 import com.bedrockcloud.cloudbridge.network.DataPacket;
 
-public class ProxyPlayerJoinPacket extends DataPacket
+public class CloudPlayerJoinPacket extends DataPacket
 {
     public String playerName;
     public String joinedServer;

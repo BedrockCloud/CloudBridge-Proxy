@@ -4,12 +4,9 @@ import com.bedrockcloud.BedrockCore;
 import com.bedrockcloud.cloudbridge.network.packets.*;
 import com.bedrockcloud.cloudbridge.config.Config;
 
-import java.net.SocketException;
-import java.util.Random;
 import com.bedrockcloud.cloudbridge.network.handler.PacketHandler;
 import com.bedrockcloud.cloudbridge.network.NetworkManager;
 import dev.waterdog.waterdogpe.ProxyServer;
-import dev.waterdog.waterdogpe.WaterdogPE;
 
 public class CloudBridge
 {
@@ -26,23 +23,22 @@ public class CloudBridge
 
         registerPacket();
         CloudBridge.networkManager = new NetworkManager(getSocketPort());
-        final ProxyServerConnectPacket packet = new ProxyServerConnectPacket();
+        final CloudServerConnectPacket packet = new CloudServerConnectPacket();
         packet.pushPacket(packet);
         final Config config = new Config("./cloud.yml", 2);
         this.serverName = (String)config.get("name");
     }
     
     public static void registerPacket() {
-        getPacketHandler().registerPacket(ProxyServerConnectPacket.class);
-        getPacketHandler().registerPacket(ProxyServerDisconnectPacket.class);
+        getPacketHandler().registerPacket(CloudServerConnectPacket.class);
+        getPacketHandler().registerPacket(CloudServerDisconnectPacket.class);
         getPacketHandler().registerPacket(RegisterServerPacket.class);
         getPacketHandler().registerPacket(UnregisterServerPacket.class);
-        getPacketHandler().registerPacket(ProxyPlayerJoinPacket.class);
-        getPacketHandler().registerPacket(ProxyPlayerQuitPacket.class);
+        getPacketHandler().registerPacket(CloudPlayerJoinPacket.class);
+        getPacketHandler().registerPacket(CloudPlayerQuitPacket.class);
         getPacketHandler().registerPacket(PlayerTextPacket.class);
         getPacketHandler().registerPacket(CloudNotifyMessagePacket.class);
         getPacketHandler().registerPacket(PlayerMovePacket.class);
-        getPacketHandler().registerPacket(StartServerPacket.class);
         getPacketHandler().registerPacket(PlayerKickPacket.class);
         getPacketHandler().registerPacket(CloudPlayerChangeServerPacket.class);
         getPacketHandler().registerPacket(SendToHubPacket.class);
