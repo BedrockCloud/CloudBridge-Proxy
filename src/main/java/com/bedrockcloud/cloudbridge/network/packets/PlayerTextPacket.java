@@ -27,38 +27,11 @@ public class PlayerTextPacket extends DataPacket {
             } else if (type == 1) {
                 proxiedPlayer.sendTitle(value3);
             } else if (type == 2) {
-                proxiedPlayer.sendPopup(value3, " BedrockCloud");
+                proxiedPlayer.sendPopup(value3, " ");
             } else if (type == 3) {
                 proxiedPlayer.sendTip(value3);
             } else if (type == 4) {
-            }
-        } else if (playerName.equals("all.players")) {
-            for (ProxiedPlayer p : ProxyServer.getInstance().getPlayers().values()) {
-                if (type == 0) {
-                    p.sendMessage(value3);
-                } else if (type == 1) {
-                    p.sendTitle(value3);
-                } else if (type == 2) {
-                    p.sendPopup(value3, " BedrockCloud");
-                } else if (type == 3) {
-                    p.sendTip(value3);
-                } else if (type == 4) {
-                }
-            }
-        } else if (playerName.equals("team.members")) {
-            for (ProxiedPlayer p : ProxyServer.getInstance().getPlayers().values()) {
-                if (p.hasPermission("cloud.notify")) {
-                    if (type == 0) {
-                        p.sendMessage(value3);
-                    } else if (type == 1) {
-                        p.sendTitle(value3);
-                    } else if (type == 2) {
-                        p.sendPopup(value3, " BedrockCloud");
-                    } else if (type == 3) {
-                        p.sendTip(value3);
-                    } else if (type == 4) {
-                    }
-                }
+                proxiedPlayer.sendToastMessage("Cloud ", value3);
             }
         }
     }
