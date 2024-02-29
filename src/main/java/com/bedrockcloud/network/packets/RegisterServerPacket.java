@@ -1,10 +1,10 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.ProxyServer;
-import com.bedrockcloud.BedrockCore;
+import com.bedrockcloud.CloudBridge;
 import com.bedrockcloud.manager.ServerManager;
 import org.json.simple.JSONObject;
-import com.bedrockcloud.cloudbridge.network.DataPacket;
 
 public class RegisterServerPacket extends DataPacket
 {
@@ -21,7 +21,7 @@ public class RegisterServerPacket extends DataPacket
         }
         ServerManager.registerServer(serverName, "127.0.0.1", Integer.parseInt(port));
         if (serverName.contains("Lobby")) {
-            BedrockCore.getInstance().joinHandler.addDefault(ProxyServer.getInstance().getServerInfo(serverName));
+            CloudBridge.getInstance().joinHandler.addDefault(ProxyServer.getInstance().getServerInfo(serverName));
         }
     }
 }

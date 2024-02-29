@@ -1,11 +1,10 @@
-package com.bedrockcloud.cloudbridge.network.handler;
+package com.bedrockcloud.network.handler;
 
-import com.bedrockcloud.cloudbridge.network.DataPacket;
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,7 @@ public class PacketHandler
 {
 
     private static final String PACKET_NAME_KEY = "packetName";
-    private Map<String, Class<? extends DataPacket>> registeredPackets;
+    private final Map<String, Class<? extends DataPacket>> registeredPackets;
 
     public PacketHandler() {
         this.registeredPackets = new HashMap<>();
@@ -56,8 +55,7 @@ public class PacketHandler
     public JSONObject handleJsonObject(final String packetName, final String input) {
         if (this.isPacketRegistered(packetName)) {
             final Object obj = JSONValue.parse(input);
-            final JSONObject jsonObject = (JSONObject)obj;
-            return jsonObject;
+            return (JSONObject)obj;
         }
 
         ProxyServer.getInstance().getLogger().warning("§eFailed to handle packet: " + packetName);

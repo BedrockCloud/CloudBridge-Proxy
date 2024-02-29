@@ -1,9 +1,9 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONObject;
-import com.bedrockcloud.cloudbridge.network.DataPacket;
 
 public class PlayerTextPacket extends DataPacket {
     public static final int TYPE_MESSAGE = 0;

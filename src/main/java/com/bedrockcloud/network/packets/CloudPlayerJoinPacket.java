@@ -1,7 +1,7 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
-import com.bedrockcloud.cloudbridge.config.Config;
-import com.bedrockcloud.cloudbridge.network.DataPacket;
+import com.bedrockcloud.config.Config;
+import com.bedrockcloud.network.DataPacket;
 
 public class CloudPlayerJoinPacket extends DataPacket
 {

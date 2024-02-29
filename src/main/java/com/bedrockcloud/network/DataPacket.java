@@ -1,17 +1,14 @@
-package com.bedrockcloud.cloudbridge.network;
+package com.bedrockcloud.network;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.Socket;
 
-import com.bedrockcloud.cloudbridge.CloudBridge;
+import com.bedrockcloud.CloudBridge;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONValue;
-import com.bedrockcloud.cloudbridge.config.Config;
+import com.bedrockcloud.config.Config;
 import org.json.simple.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
