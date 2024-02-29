@@ -1,4 +1,4 @@
 name: "CloudBridge"
-version: 1.0.2
-main: com.bedrockcloud.BedrockCore
+version: 1.0.3
+main: com.bedrockcloud.CloudBridge
 author: "xxFLORII"

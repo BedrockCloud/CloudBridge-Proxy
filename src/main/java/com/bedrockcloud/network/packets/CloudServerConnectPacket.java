@@ -1,6 +1,6 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
-import com.bedrockcloud.cloudbridge.network.DataPacket;
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.ProxyServer;
 
 public class CloudServerConnectPacket extends DataPacket

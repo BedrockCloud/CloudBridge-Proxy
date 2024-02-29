@@ -5,7 +5,7 @@ import java.net.InetSocketAddress;
 import dev.waterdog.waterdogpe.network.connection.handler.IJoinHandler;
 import dev.waterdog.waterdogpe.network.serverinfo.BedrockServerInfo;
 import java.util.List;
-import com.bedrockcloud.cloudbridge.network.packets.CloudPlayerChangeServerPacket;
+import com.bedrockcloud.network.packets.CloudPlayerChangeServerPacket;
 import java.util.Comparator;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;

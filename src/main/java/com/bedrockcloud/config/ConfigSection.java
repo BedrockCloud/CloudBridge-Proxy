@@ -1,4 +1,4 @@
-package com.bedrockcloud.cloudbridge.config;
+package com.bedrockcloud.config;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

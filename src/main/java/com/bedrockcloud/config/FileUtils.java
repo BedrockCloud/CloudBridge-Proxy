@@ -1,4 +1,4 @@
-package com.bedrockcloud.cloudbridge.config;
+package com.bedrockcloud.config;
 
 import java.nio.channels.FileChannel;
 import java.io.BufferedReader;

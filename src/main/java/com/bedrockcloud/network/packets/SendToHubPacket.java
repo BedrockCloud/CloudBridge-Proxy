@@ -1,10 +1,10 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
-import com.bedrockcloud.BedrockCore;
+import com.bedrockcloud.CloudBridge;
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONObject;
-import com.bedrockcloud.cloudbridge.network.DataPacket;
 
 public class SendToHubPacket extends DataPacket
 {
@@ -14,7 +14,7 @@ public class SendToHubPacket extends DataPacket
         final String playerName = jsonObject.get("playerName").toString();
         ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playerName);
         if (player != null){
-            BedrockCore.getInstance().getJoinHandler().determineServer(((ProxiedPlayer) player), ((ProxiedPlayer) player).getServerInfo());
+            CloudBridge.getInstance().getJoinHandler().determineServer(((ProxiedPlayer) player), ((ProxiedPlayer) player).getServerInfo());
         }
     }
 }

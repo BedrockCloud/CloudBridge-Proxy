@@ -1,16 +1,11 @@
-package com.bedrockcloud.cloudbridge.network;
+package com.bedrockcloud.network;
 
 import java.io.*;
 import java.net.*;
 
-import com.bedrockcloud.BedrockCore;
-import com.bedrockcloud.cloudbridge.CloudBridge;
-import com.google.gson.stream.JsonWriter;
+import com.bedrockcloud.CloudBridge;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class NetworkManager implements Runnable {
     public DatagramSocket datagramSocket;
@@ -23,7 +18,7 @@ public class NetworkManager implements Runnable {
         } catch (IOException e) {
             ProxyServer.getInstance().getLogger().error("", e);
         }
-        BedrockCore.getInstance().getThreadPool().submit(this);
+        CloudBridge.getInstance().getThreadPool().submit(this);
     }
 
     public void sendPacket(final DatagramPacket datagramPacket) {

@@ -1,8 +1,8 @@
-package com.bedrockcloud.cloudbridge.network.packets;
+package com.bedrockcloud.network.packets;
 
+import com.bedrockcloud.network.DataPacket;
 import dev.waterdog.waterdogpe.ProxyServer;
 import org.json.simple.JSONObject;
-import com.bedrockcloud.cloudbridge.network.DataPacket;
 
 public class PlayerKickPacket extends DataPacket
 {
