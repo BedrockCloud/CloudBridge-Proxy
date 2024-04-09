@@ -33,6 +33,10 @@ public class DataPacket {
         this.data.put(key, value);
     }
 
+    public void addValue(final String key, final Map value) {
+        this.data.put(key, value);
+    }
+
     public void handle(final JSONObject jsonObject) {
     }
 
