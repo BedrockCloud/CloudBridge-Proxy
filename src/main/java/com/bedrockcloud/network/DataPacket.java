@@ -48,38 +48,35 @@ public class DataPacket {
     }
 
     public void pushPacket(final DataPacket cloudPacket) {
-        try (DatagramSocket s = new DatagramSocket(32324)) {
-            if (s.isClosed()) {
-                return;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                byteArrayOutputStream.write(cloudPacket.encode().getBytes());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        if (CloudBridge.getNetworkManager().datagramSocket.isClosed()) {
+            return;
+        }
 
-            byte[] data = byteArrayOutputStream.toByteArray();
-            InetAddress address = null;
-            try {
-                address = InetAddress.getByName("127.0.0.1");
-            } catch (UnknownHostException ignored) {
-            }
-            int port = CloudBridge.getCloudPort();
-            DatagramPacket datagramPacket = new DatagramPacket(data, data.length, address, port);
-            DatagramSocket datagramSocket = null;
-            try {
-                datagramSocket = new DatagramSocket();
-            } catch (SocketException ex) {
-                ProxyServer.getInstance().getLogger().error("", ex);
-            }
-            try {
-                datagramSocket.send(datagramPacket);
-            } catch (IOException ex) {
-                ProxyServer.getInstance().getLogger().error("", ex);
-            }
-        } catch (Exception exception){
-            ProxyServer.getInstance().getLogger().error("", exception);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            byteArrayOutputStream.write(cloudPacket.encode().getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        byte[] data = byteArrayOutputStream.toByteArray();
+        InetAddress address = null;
+        try {
+            address = InetAddress.getByName("127.0.0.1");
+        } catch (UnknownHostException ignored) {
+        }
+        int port = CloudBridge.getCloudPort();
+        DatagramPacket datagramPacket = new DatagramPacket(data, data.length, address, port);
+        DatagramSocket datagramSocket = null;
+        try {
+            datagramSocket = new DatagramSocket();
+        } catch (SocketException ex) {
+            ProxyServer.getInstance().getLogger().error("", ex);
+        }
+        try {
+            datagramSocket.send(datagramPacket);
+        } catch (IOException ex) {
+            ProxyServer.getInstance().getLogger().error("", ex);
         }
     }
 }
