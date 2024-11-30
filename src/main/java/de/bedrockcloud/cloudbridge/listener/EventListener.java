@@ -16,6 +16,8 @@ import dev.waterdog.waterdogpe.event.defaults.PlayerLoginEvent;
 import dev.waterdog.waterdogpe.event.defaults.ServerTransferRequestEvent;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 
+import java.net.InetSocketAddress;
+
 public class EventListener {
 
     public static void onLogin(PlayerLoginEvent event) {
@@ -26,7 +28,7 @@ public class EventListener {
             return;
         }
 
-        Network.getInstance().sendPacket(new PlayerConnectPacket(new CloudPlayer(player.getName(), player.getAddress().getAddress().getHostAddress() + ":" + player.getAddress().getPort(), player.getXuid(), player.getUniqueId().toString(), null, null)));
+        Network.getInstance().sendPacket(new PlayerConnectPacket(new CloudPlayer(player.getName(), player.getAddress().getAddress().getHostAddress() + ":" + player.getAddress().getPort(), player.getAddress().getAddress().getHostAddress(), player.getXuid(), player.getUniqueId().toString(), null, null)));
 
         if (CloudAPI.getInstance().getCurrentTemplate() == null) return;
         if (CloudAPI.getInstance().getCurrentTemplate().isMaintenance()) {

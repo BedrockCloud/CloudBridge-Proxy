@@ -14,6 +14,7 @@ public class CloudPlayer {
 
     private final String name;
     private final String host;
+    private final String address;
     private final String xboxUserId;
     private final String uniqueId;
     @Setter
@@ -21,9 +22,10 @@ public class CloudPlayer {
     @Setter
     private CloudServer currentProxy;
 
-    public CloudPlayer(String name, String host, String xboxUserId, String uniqueId, CloudServer currentServer, CloudServer currentProxy) {
+    public CloudPlayer(String name, String host, String address, String xboxUserId, String uniqueId, CloudServer currentServer, CloudServer currentProxy) {
         this.name = name;
         this.host = host;
+        this.address = address;
         this.xboxUserId = xboxUserId;
         this.uniqueId = uniqueId;
         this.currentServer = currentServer;
@@ -34,6 +36,7 @@ public class CloudPlayer {
         HashMap<String, Object> map = new HashMap<>();
         map.put("name", name);
         map.put("host", host);
+        map.put("address", address);
         map.put("xboxUserId", xboxUserId);
         map.put("uniqueId", uniqueId);
         map.put("currentServer", (currentServer == null ? null : currentServer.getName()));
@@ -42,10 +45,11 @@ public class CloudPlayer {
     }
 
     public static CloudPlayer fromArray(Map<?,?> map) {
-        if (Utils.containKeys(map, "name", "host", "xboxUserId", "uniqueId")) return null;
+        if (Utils.containKeys(map, "name", "host", "address", "xboxUserId", "uniqueId")) return null;
         return new CloudPlayer(
                 (String) map.get("name"),
                 (String) map.get("host"),
+                (String) map.get("address"),
                 (String) map.get("xboxUserId"),
                 (String) map.get("uniqueId"),
                 (!map.containsKey("currentServer") ? null : CloudAPI.getInstance().getServerByName((String)map.get("currentServer"))),
